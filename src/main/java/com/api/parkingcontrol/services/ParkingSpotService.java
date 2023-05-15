@@ -6,6 +6,10 @@ import com.api.parkingcontrol.repositories.ParkingSpotRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class ParkingSpotService {
 
@@ -31,5 +35,13 @@ public class ParkingSpotService {
 
     public boolean existsByApartmentAndBlock(String apartment, String block) {
         return parkingSpotRepository.existsByApartmentAndBlock(apartment, block);
+    }
+
+    public List<ParkingSpotModel> findAll() {
+        return parkingSpotRepository.findAll();
+    }
+
+    public Optional<ParkingSpotModel> findById(UUID id) {
+        return parkingSpotRepository.findById(id);
     }
 }
